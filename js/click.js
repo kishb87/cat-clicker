@@ -4,7 +4,7 @@ var catArray = ["Bob","Tom","Sam","Joe","Kevin"];
 for (var i = 0; i < catArray.length; i++) {
     var cat = catArray[i];
     // We're creating a DOM element for each cat
-    var elem = document.createElement('p');
+    var elem = document.createElement('button');
     elem.textContent = cat;
 
     //When a cat is clicked on...
