@@ -1,24 +1,39 @@
+//Array of five cats with names chosen randomly
+var catArray = ["Bob","Tom","Sam","Joe","Kevin"];
 
-//Name cats and add to DOM
-var cat1 = "Bob";
-var cat2 = "Joe";
+for (var i = 0; i < catArray.length; i++) {
+    var cat = catArray[i];
+    // We're creating a DOM element for each cat
+    var elem = document.createElement('p');
+    elem.textContent = cat;
 
-$("#cat1").before("<h1>" + cat1 + "</h1>");
-$("#cat2").before("<h1>" + cat2 + "</h1>");
+    //When a cat is clicked on...
+    elem.addEventListener('click', (function(catCopy) {
+        return function() {
+        	//Set number of clicks back to 0
+        	$('#clicks1').replaceWith("<h1 id='clicks1'>Number of Clicks: 0</h1>");
+        	//Empty out the cat-clicker ID in the DOM
+        	$("#cat-clicker").empty();
+        	//Add cat name
+            $("#cat-clicker").append("<h2>" + catCopy + "</h2>")
+            //Append Image
+            $("#cat-clicker").append("<img " + "id=cat-image " + "class= 'img-responsive '" + "src=" + "../img/" + catCopy + ".jpg" + ">")
+
+
+            //When cat image is clicked on, count number of clicks
+            var value1 = 0;
+			$('#cat-image').click(function(e) {
+				value1++;
+				$('#clicks1').replaceWith("<h1 id='clicks1'>Number of Clicks: " + value1 + "</h1>");
+			});
+
+            console.log(catCopy);
+        };
+    })(cat));
+
+    //Append each cat name to DOM
+    $("#cat-list").append(elem);
+};
 
 
 
-var value1 = 0;
-var value2 = 0;
-$('#clicks1').append(" " + value1);
-$('#clicks2').append(" " + value1);
-
-
-$('#cat1').click(function(e) {
-	value1++;
-	$('#clicks1').replaceWith("<h1 id='clicks1'>Number of Clicks: " + value1 + "</h1>");
-});
-$('#cat2').click(function(e) {
-	value2++;
-	$('#clicks2').replaceWith("<h1 id='clicks2'>Number of Clicks: " + value2 + "</h1>");
-});
