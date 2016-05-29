@@ -17,7 +17,7 @@ for (var i = 0; i < catArray.length; i++) {
         	//Add cat name
             $("#cat-clicker").append("<h2>" + catCopy + "</h2>")
             //Append Image
-            $("#cat-clicker").append("<img " + "id=cat-image " + "class= 'img-responsive '" + "src=" + "../img/" + catCopy + ".jpg" + ">")
+            $("#cat-clicker").append("<img " + "id=cat-image " + "class= 'img-responsive '" + "src=" + "../cat-clicker/img/" + catCopy + ".jpg" + ">")
 
 
             //When cat image is clicked on, count number of clicks
